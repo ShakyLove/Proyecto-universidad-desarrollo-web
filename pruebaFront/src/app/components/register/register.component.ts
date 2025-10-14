@@ -25,7 +25,8 @@ export class RegisterComponent implements OnInit {
       firstName:      ['', [Validators.required]],
       lastName:       ['', [Validators.required]],
       identification: ['', [Validators.required]],
-      password:       ['', [Validators.required]]
+      password:       ['', [Validators.required]],
+      accountType:    ['', [Validators.required]]
     });
   }
 
@@ -39,6 +40,7 @@ export class RegisterComponent implements OnInit {
       lastName        : form.lastName,
       identification  : form.identification,
       password        : form.password,
+      accountType:     form.accountType
     }
 
     //Consumimos el servicio
