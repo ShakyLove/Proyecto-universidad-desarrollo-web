@@ -1,6 +1,4 @@
 # Proyecto minibanco
-Buenas tardes, comparto prueba tecnica Locatel.
-
 recomendaciones en caso de que se requiera ejecutar el proyecto:
 1. en la capeta front ejecutar npm install
 2. dejo el archivo requirements.txt en la carpeta back para la instalacion de sus dependencias
