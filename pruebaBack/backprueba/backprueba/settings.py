@@ -1,4 +1,6 @@
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -64,16 +66,25 @@ WSGI_APPLICATION = 'backprueba.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '1234567',
-        'NAME': 'actividad_eje1'
+if os.getenv("ENV") == "PROD":
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'prueba_locatel',
+            'USER': 'TU_USUARIO',
+            'PASSWORD': 'TU_PASSWORD',
+            'HOST': 'localhost',
+            'PORT': '3306',
+        }
+    }
+
 
 
 # Password validation
