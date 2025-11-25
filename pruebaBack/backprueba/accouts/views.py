@@ -16,18 +16,21 @@ import json
 import jwt
 
 # Create your views here.
-class AccountView(View):
+class AccountView(View): 
 
     def get(self, request, id):
         try:
-            account = Account.objects.filter(id = id).values('first_name', 'last_name', 'value_count', 'identification', 'tarjet_number', 'account_number', 'csv_number', 'tarjet_date',).first()
+            account = Account.objects.filter(id = id).values('first_name', 
+                                                             'last_name', 'value_count', 'identification', 'tarjet_number', 
+                                                             'account_number', 
+                                                             'csv_number', 'tarjet_date',).first()
             movements = Movements.objects.filter(account_id = id).values('detail', 'created_at', 'value_mov', 'type_mov')
             data = {'message': 'Cuenta encontrada', 'account': account, 'movements': list(movements)}
         except Account.DoesNotExist:
             data = {'message': 'Cuenta no encontrada'}
         return JsonResponse(data)
 
-class RegisterAccount(View):
+class RegisterAccount(View): 
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
@@ -67,7 +70,7 @@ class RegisterAccount(View):
                 data = {'message': 'Error en los datos de la cuenta', 'icon': 'error'}
         return JsonResponse(data)
 
-class LoginView(View):
+class LoginView(View): 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
@@ -92,7 +95,7 @@ class LoginView(View):
             data = {'message': 'El usuario no existe', 'icon': 'error'}
         return JsonResponse(data)
     
-class MovementView(View):
+class MovementView(View): 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)

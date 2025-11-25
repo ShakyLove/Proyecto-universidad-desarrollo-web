@@ -16,18 +16,18 @@ export class HomeComponent implements OnInit {
 
   constructor(private accountService: AccoutService, private router: Router,) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.activateForm();
   }
 
-  activateForm() {
+  activateForm() { 
     this.loginForm = new FormGroup({
       identification: new FormControl(''),
       password:       new FormControl(''),
     });
   }
 
-  login(form){
+  login(form){ 
     this.accountService.login(form).subscribe(res => {
       if(res.account){
         this.router.navigate(['/', 'info']);

@@ -18,24 +18,24 @@ export class ConsignmentsComponent implements OnInit {
   title: string;
   originCount;
 
-  constructor(
+  constructor( 
     private accountService: AccoutService,
     public modalRef: MatDialogRef<ConsignmentsComponent>,
     @Inject(MAT_DIALOG_DATA) public datos: any,
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.datos.type == 1 ? this.title = 'Consignar' : this.title = 'Retirar';
     this.activateForm();
   }
 
-  activateForm() {
+  activateForm() { 
     this.consignmentForm = new FormGroup({
       accountNumber: new FormControl(''),
     });
   }
 
-  movements(form) {
+  movements(form) { 
     if (this.value.value != null) {
       let data = {
         account: this.datos.data.account_number,

@@ -22,11 +22,11 @@ export class InfoAccountComponent implements OnInit {
     this.dataAccount =this.accountService.decryptToken();
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.getInfo();
   }
 
-  getInfo() {
+  getInfo() { 
     this.accountService.getInfo(this.dataAccount.id).subscribe((res:any) => {
       this.data           = res.account;
       this.accountNumber  = res.account.account_number.replace(/(\d{3})(\d{5})(\d{2})/, '$1-$2-$3');
@@ -42,7 +42,7 @@ export class InfoAccountComponent implements OnInit {
     })
   }
 
-  consignment() {
+  consignment() { 
     const modalRef = this.modal.open(ConsignmentsComponent, {
       width: '40%',
       data: { type: 1, data: this.data, valueCount: this.valueCount, accountNumber: this.accountNumber },
@@ -55,7 +55,7 @@ export class InfoAccountComponent implements OnInit {
     });
   }
 
-  retire() {
+  retire() { 
     const modalRef = this.modal.open(ConsignmentsComponent, {
       width: '40%',
       data: { type: 2, data: this.data, valueCount: this.valueCount, accountNumber: this.accountNumber },

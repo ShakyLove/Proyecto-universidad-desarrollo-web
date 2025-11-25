@@ -70,8 +70,8 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '',
-        'NAME': 'prueba_locatel'
+        'PASSWORD': '1234567',
+        'NAME': 'actividad_eje1'
     }
 }
 
