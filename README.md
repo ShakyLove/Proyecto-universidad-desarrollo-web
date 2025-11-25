@@ -1,4 +1,4 @@
-# Prueba-tecnica-Locatel
+# Proyecto minibanco
 Buenas tardes, comparto prueba tecnica Locatel.
 
 recomendaciones en caso de que se requiera ejecutar el proyecto:
