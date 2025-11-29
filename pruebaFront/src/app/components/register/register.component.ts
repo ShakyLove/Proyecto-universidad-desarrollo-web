@@ -16,22 +16,23 @@ export class RegisterComponent implements OnInit {
 
   constructor(private accountService: AccoutService, private fb: FormBuilder,) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.activateForm();
   }
 
-  activateForm() {
+  activateForm() { 
     this.registerForm = this.fb.group({
       firstName:      ['', [Validators.required]],
       lastName:       ['', [Validators.required]],
       identification: ['', [Validators.required]],
-      password:       ['', [Validators.required]]
+      password:       ['', [Validators.required]],
+      accountType:    ['', [Validators.required]]
     });
   }
 
   get error(): any { return this.registerForm.controls; }
 
-  createAccount(form) {
+  createAccount(form) { 
     //Creamos objeto
     let data = {
       valueCount      : this.amountCtrl.value,
@@ -39,6 +40,7 @@ export class RegisterComponent implements OnInit {
       lastName        : form.lastName,
       identification  : form.identification,
       password        : form.password,
+      accountType:     form.accountType
     }
 
     //Consumimos el servicio

@@ -15,7 +15,7 @@ export class AccoutService {
 
   constructor(private http: HttpClient) { }
 
-  login(data) {
+  login(data) { 
     return this.http.post(`${API_URL}login/`, data).pipe(
       map((res:any) => {
         this.saveToken(res.token)
@@ -24,7 +24,7 @@ export class AccoutService {
     );
   }
 
-  saveToken(token: string) {
+  saveToken(token: string) { 
     this.userToken = token;
     localStorage.setItem('userToken', token);
   }
@@ -49,7 +49,7 @@ export class AccoutService {
     }
   }
 
-  register(data) {
+  register(data) { 
     return this.http.post(`${API_URL}register/`, data).pipe(
       map((res:any) => {
         return res;
@@ -57,7 +57,7 @@ export class AccoutService {
     );
   }
 
-  getInfo(id) {
+  getInfo(id) { 
     return this.http.get(`${API_URL}account/${id}`).pipe(
       map((res: any) => {
         return res;
@@ -65,7 +65,7 @@ export class AccoutService {
     );
   }
 
-  movements(data) {
+  movements(data) { 
     return this.http.post(`${API_URL}movement/`, data).pipe(
       map((res:any) => {
         return res;
